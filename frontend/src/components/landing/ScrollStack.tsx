@@ -16,7 +16,6 @@ export function ScrollStack({
   baseScale = 0.92,
 }: ScrollStackProps) {
   const items = React.Children.toArray(children)
-  const n = items.length
   const containerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
   const [scales, setScales] = useState<number[]>(items.map(() => 1))
