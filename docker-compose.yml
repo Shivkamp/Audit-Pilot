@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: taxaudit-ai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: taxaudit_ai
+      POSTGRES_USER: taxaudit_ai
+      POSTGRES_PASSWORD: taxaudit_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taxaudit_ai -d taxaudit_ai"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:

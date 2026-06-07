@@ -1,0 +1,18 @@
+fastapi
+uvicorn[standard]
+sqlalchemy>=2.0
+psycopg2-binary
+alembic
+pydantic-settings
+bcrypt
+python-jose[cryptography]
+python-multipart
+boto3
+celery
+redis  # pin to 8.x; RESP2 is forced in celery_app.py for Redis 5.x Windows compatibility
+pymupdf
+pandas
+openpyxl
+xlrd
+langgraph
+openai
